@@ -27,7 +27,7 @@ Location.prototype.numberOfCustPerHour = function () {
 
 Location.prototype.cookiePerHourArr = function () {
   for (let i=0; i<hours.length; i++) {
-    this.cookiePerHour.push(Math.floor(this.cookiePerHour() * this.average));
+    this.cookiePerHour.push(Math.floor(this.cookiePerHourArr() * this.average));
     this.total += this.cookiePerHour[i];
   }
 
