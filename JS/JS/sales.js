@@ -49,6 +49,58 @@ let tableElement = document.createElement('table');
 
 parentElement.appendChild(tableElement);
 
+
+
+Location.prototype.render = function () {
+
+  let sumRowElement = document.createElement('tr');
+  tableElement.appendChild(sumRowElement);
+
+  let tdNameElement = document.createElement('td');
+  sumRowElement.appendChild(tdNameElement);
+  tdNameElement.textContent = this.name;
+
+  for (let i = 0; i < hours.length; i++) {
+    let tdLocationElement = document.createElement('td');
+    sumRowElement.appendChild(tdLocationElement);
+    tdLocationElement.textContent = this.cookiePerHour[i];
+  }
+  let tdTotalElement = document.createElement('td');
+  sumRowElement.appendChild(tdTotalElement);
+  tdTotalElement.textContent = this.total;
+
+}
+
+let LocationsFormElement=document.getElementById('LocationsForm');
+LocationsFormElement.addEventListener('submit',submitter);
+
+
+function submitter(event){
+  event.preventDefault();
+  console.log(event);
+  let name=event.target.nameField.value;
+  
+  let min=event.target.minField.value;
+  let max=event.target.maxField.value;
+  let average=event.target.avgField.value;
+  
+  console.log(name,min,max,average);
+
+  let addedLocation= new Location(name,min,max,average);
+  console.log(locations);
+  let container=document.getElementById('parent');
+   
+  tableElement.textContent='';
+  headerRender();
+    for (let i=0;i<locations.length;i++){
+locations[i].total=0;
+      locations[i].cookiePerHourArr();
+      locations[i].render();
+    }
+    footerRender();
+}
+
+
 function headerRender() {
 
   let headerRowElement = document.createElement('tr');
@@ -70,25 +122,7 @@ function headerRender() {
 
 }
 
-Location.prototype.render = function () {
 
-  let sumRowElement = document.createElement('tr');
-  tableElement.appendChild(sumRowElement);
-
-  let tdNameElement = document.createElement('td');
-  sumRowElement.appendChild(tdNameElement);
-  tdNameElement.textContent = this.name;
-
-  for (let i = 0; i < hours.length; i++) {
-    let tdLocationElement = document.createElement('td');
-    sumRowElement.appendChild(tdLocationElement);
-    tdLocationElement.textContent = this.cookiePerHour[i];
-  }
-  let tdTotalElement = document.createElement('td');
-  sumRowElement.appendChild(tdTotalElement);
-  tdTotalElement.textContent = this.total;
-
-}
 
 function footerRender() {
   let footerRowElement = document.createElement('tr');
@@ -116,6 +150,9 @@ function footerRender() {
   tfTotalElement.textContent = horSum;
 }
 
+
+
+
 headerRender();
 for (let i=0;i<locations.length;i++){
   locations[i].cookiePerHourArr();
@@ -123,4 +160,3 @@ for (let i=0;i<locations.length;i++){
 }
 
 footerRender();
-
