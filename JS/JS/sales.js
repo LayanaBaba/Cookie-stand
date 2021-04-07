@@ -25,10 +25,12 @@ Location.prototype.numberOfCustPerHour = function () {
   return randomnumber(this.min, this.max);
 }
 
+
 Location.prototype.cookiePerHourArr= function(){
   for (let i=0;i<hours.length;i++){
     this.cookiePerHour.push(Math.floor(this.numberOfCustPerHour()*this.average));
     this.total+=this.cookiePerHour[i];
+
   }
 }
 
