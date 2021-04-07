@@ -25,14 +25,15 @@ Location.prototype.numberOfCustPerHour = function () {
   return randomnumber(this.min, this.max);
 }
 
-Location.prototype.cookiePerHourArr = function () {
-  for (let i=0; i<hours.length; i++) {
-    this.cookiePerHour.push(Math.floor(this.cookiePerHourArr() * this.average));
-    this.total += this.cookiePerHour[i];
+
+Location.prototype.cookiePerHourArr= function(){
+  for (let i=0;i<hours.length;i++){
+    this.cookiePerHour.push(Math.floor(this.numberOfCustPerHour()*this.average));
+    this.total+=this.cookiePerHour[i];
+
   }
-
-
 }
+
 let seattle = new Location('Seattle', 23, 65, 6.3);
 let tokyo = new Location('Tokyo', 3, 24, 1.2);
 let dubai = new Location('Dubai', 11, 38, 3.7);
@@ -100,9 +101,9 @@ function footerRender() {
   let horSum = 0;
   for (let i = 0; i < hours.length; i++) {
     sumOfEachHour = 0;
-    for (let q = 0; q < location.length; q++) {
-      sumOfEachHour += location[q].cookiePerHour[i];
-      horSum += location[q].cookiePerHour[i];
+    for (let q = 0; q < locations.length; q++) {
+      sumOfEachHour += locations[q].cookiePerHour[i];
+      horSum += locations[q].cookiePerHour[i];
     }
 
     let tfElement = document.createElement('th');
