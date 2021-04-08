@@ -10,32 +10,39 @@
     </header>
     <title>Cookie Stand</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
 </head>
 <body>
-<form action="" id="LocationsForm">
-<fieldset>
-<label for="nameField">Location Name</label>
-<input type="text" id="nameField" name="nameField">
-<br>
-<br>
-<label for="minField">Minimum Customers</label>
-<input type="number" id="minField" name="minField" >
+    <div id="label">
+        <form action="" id="LocationsForm">
+            <fieldset>
+            <label for="nameField" id="labell">Location Name</label>
+            <input type="text" id="nameField" name="nameField">
+            <br>
+            <br>
+            <label for="minField" id="labell">Minimum Customers</label>
+            <input type="number" id="minField" name="minField" >
+            
+            <br>
+            <br>
+            <label for="maxField" id="labell">Maximum Customers</label>
+            <input type="number" id="maxField" name="maxField" >
+            
+            <br>
+            <br>
+            <label for="avgField" id="labell">Average Customers</label>
+            <input type="number" id="avgField" name="avgField" step="any" >
+            <br>
+            <br>
+            <input type="submit">
+            
+            </fieldset>
+            </form>
+    </div>
 
-<br>
-<br>
-<label for="maxField">Maximum Customers</label>
-<input type="number" id="maxField" name="maxField" >
-
-<br>
-<br>
-<label for="avgField">Average Customers</label>
-<input type="number" id="avgField" name="avgField" step="any" >
-<br>
-<br>
-<input type="submit">
-
-</fieldset>
-</form>
 
 <br>
 <br>
@@ -43,9 +50,7 @@
     
     <div id="parent"></div>
     
-<footer>
-    &copy;2021
-</footer>
+
     <script src="JS/JS/sales.js"></script>
 
   </body>
