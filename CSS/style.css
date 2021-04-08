@@ -1,9 +1,12 @@
-
+body{
+  width: 100%;
+}
 header{
     color: #98ded9;
     background-color: #161d6f;
     height: 80px;
     margin-bottom: 30px;
+    font-family: 'Domine', serif;
 }
 header nav{
     float: right;
@@ -35,11 +38,13 @@ table {
     border-collapse: collapse;
     width: 100%;
 
+
   }
   
   td {
     text-align: center;
     width: 100px;
+    font-family: 'Oswald', sans-serif;
   }
 
   th{
